@@ -41,7 +41,7 @@ app.get('/result/:id', routes.result);
 app.post('/submit', routes.submit);
 app.post('/email', routes.email);
 
-app.listen(3000, function(){
+app.listen(3002, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
 } catch (e) {
