@@ -1,0 +1,20 @@
+<div class='preamble'>
+<p>
+  <i>"Software engineering has its own political axis, ranging from conservative to liberal."</i> -- Steve Yegge 8/10/12
+</p>
+<p>
+  This survey is designed to compute where you fall on the software engineering political axis. To do so, you must specify to what degree you agree with each of the beliefs on the left. All the beliefs are copied verbatim from <a href="https://plus.google.com/u/0/110981030061712822816/posts/KaSKeg4vQtz">Steve's original essay.</a>
+</p>
+<p>
+  This survey was created by <a href="http://twitter.com/mkrecny">Myles Recny</a> and is open source.
+</p>
+</div>
+
+<div class="beliefs-title">
+</div>
+<div class="beliefs">
+  <form action="/submit/" method="post">
+    <%- partial('belief', {collection:beliefs}) %>
+  <input class="submit-button" type="submit" value="Submit" />
+  </form>
+</div>

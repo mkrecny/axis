@@ -1,0 +1,72 @@
+body {
+  font-size:18pt;
+  font-family:"Arial";
+  color:#505050;
+}
+
+fieldset {
+  border:0;
+}
+
+.app-title{
+  margin:10px;
+  font-size:120%;
+  color:#404040;
+}
+
+.preamble{
+  margin-right:100px;
+  float:right;
+  width:35%;
+}
+
+.beliefs{
+  margin-top:23px;
+  width:50%;
+}
+
+.belief {
+  margin:10px;
+}
+
+.belief:hover{
+  color:#202020;
+}
+
+.belief-title{
+  font-size:95%;
+  margin:5px;
+  color:#454545;
+}
+
+.belief-body{
+  font-size:85%;
+  margin:5px;
+}
+
+.belief-input{
+}
+
+.belief-fieldset{
+  font-size:80%;
+  color:#202020;
+}
+
+.submit-button{
+  float:right;
+  font-size:140%;
+}
+
+.scores{
+  width:50%;
+  font-weight:bold;
+  margin:10px;
+}
+
+.conservative{
+  color:red;
+}
+
+.liberal{
+  color:blue;
+}

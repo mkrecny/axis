@@ -1,0 +1,23 @@
+<div class="preamble">
+  <p>
+    This is a shareable results page (<a href="https://twitter.com/#!/search/realtime/%23SWEAxis">#SWEAxis</a>)
+  </p>
+  <p>
+    To get the full result set of the survey enter your email below. We'll send it to you when it's ready.
+  </p>
+  <p>
+    <form action="/email" method="post">
+      <input type="text" name="email" />  
+      <input type="submit" value="Submit" />
+    </form>
+  </p>
+</div>
+
+<div class="scores">
+  <span class="conservative"><%= score.conservatism %>% Conservative</span> 
+  and <span class="liberal"><%= score.liberalism %>% Liberal</span>
+</div>
+
+<div class="beliefs">
+  <%- partial('belief', {collection:beliefs, answers:answers}) %>
+</div>

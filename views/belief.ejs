@@ -1,0 +1,15 @@
+<div class="belief">
+  <div class="belief-title"><%= belief.id %> . <%= belief.title %></div>
+  <div class="belief-body"><%= belief.body %></div>
+  <fieldset class="belief-fieldset">
+  Disagree
+  <% for (var strength=0; strength<5; strength++) { %>
+    <% 
+      var checked = (answers && answers.hasOwnProperty(belief.id) && answers[belief.id]==strength) ? 'checked' : '';
+    %>
+    <input <%= checked %> class="belief-input" name="<%= belief.id %>" type="radio" value="<%= strength %>"></input>
+  <% } %>
+  Agree
+  </fieldset>
+  </input>
+</div>
