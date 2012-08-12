@@ -51,7 +51,7 @@ exports.index = function(req, res){
 
 exports.result = function(req, res){
   readResult(req.params.id, function(e, data){
-    res.render('results', { score: computeScore(data), beliefs: beliefsDb, answers: data })
+    res.render('results', { result_id : req.params.id, score: computeScore(data), beliefs: beliefsDb, answers: data })
   });
 };
 

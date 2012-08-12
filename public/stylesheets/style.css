@@ -73,3 +73,8 @@ fieldset {
 .thank-you{
   margin:20px;
 }
+
+.copy-result-link{
+  width:370px;
+  font-size:80%;
+}
