@@ -38,6 +38,7 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/result/:id', routes.result);
+app.get('/stats', routes.stats);
 app.post('/submit', routes.submit);
 app.post('/email', routes.email);
 

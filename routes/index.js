@@ -67,3 +67,11 @@ exports.email = function(req, res){
     res.render('thankyou');
   });
 };
+
+exports.stats = function(req, res){
+  redis.keys('axis:result:*', function(e, results){
+    redis.scard('axis:emails', function(e, emails){
+      res.render('stats', {results : results.length, emails: emails});
+    });
+  });
+};
