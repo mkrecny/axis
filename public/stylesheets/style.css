@@ -11,7 +11,6 @@ fieldset {
 .app-title{
   margin:10px;
   font-size:120%;
-  color:#404040;
 }
 
 .preamble{
@@ -69,4 +68,8 @@ fieldset {
 
 .liberal{
   color:blue;
+}
+
+.thank-you{
+  margin:20px;
 }

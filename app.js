@@ -1,4 +1,11 @@
 
+function handleError(){
+  console.error('error:', e);
+}
+
+process.on('uncaughtException', handleError);
+
+try {
 /**
  * Module dependencies.
  */
@@ -32,7 +39,11 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/result/:id', routes.result);
 app.post('/submit', routes.submit);
+app.post('/email', routes.email);
 
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
+} catch (e) {
+  handleError(e);
+}

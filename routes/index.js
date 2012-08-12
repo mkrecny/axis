@@ -32,7 +32,7 @@ function computeScore(data){
 function getRandomId(){ // clearly I am a liberal :p
   var id = '';
   for (var i=0;i<8;i++){
-    id+= chars[Math.floor(Math.random()*(chars.length+1))];
+    id+= chars[Math.floor(Math.random()*(chars.length))];
   }
   return id;
 }
@@ -59,5 +59,11 @@ exports.submit = function(req, res){
   var result_id = getRandomId();
   writeResult(result_id, req.body, function(){
     res.redirect('/result/'+result_id);
+  });
+};
+
+exports.email = function(req, res){
+  redis.sadd('axis:emails', req.body.email, function(){
+    res.render('thankyou');
   });
 };
