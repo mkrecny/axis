@@ -1,0 +1,26 @@
+<%
+  var langs = ['', 'javascript', 'ruby', 'python', 'shell', 'java', 'c', 'c++', 'perl', 
+  'objective-c', 'php', 'lisp', 'erlang', 'haskell', 'fortran', 'lua', 'matlab', 
+  'ocaml', 'r', 'scala', 'smalltalk', 'visualbasic', 'other'];
+%>
+<div class="metas">
+  <div class="belief">
+    Your age: <input value="<%= meta.age || '' %>" type="text" name="age" />
+  </div>
+  <div class="belief">
+    Favorite language:
+    <select name="lang">
+      <% langs.forEach(function(lang){ %>
+        <option <%= meta.lang && meta.lang==lang ? 'selected' : '' %> value="<%= lang %>"><%= lang %></option>
+      <% }); %>
+    </select>
+  </div>
+  <div class="belief">
+  Do you work at a startup?
+    <select name="startup">
+      <option value=""></option>
+      <option <%= meta.startup && meta.startup=='yes' ? 'selected' : '' %> value="yes">yes</option>
+      <option <%= meta.startup && meta.startup=='no' ? 'selected' : '' %> value="no">no</option>
+    </select>
+  </div>
+</div>

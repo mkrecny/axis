@@ -15,6 +15,7 @@
 <div class="beliefs">
   <form action="/submit/" method="post">
     <%- partial('belief', {collection:beliefs}) %>
+    <%- partial('meta', {meta:false}) %>
   <input class="submit-button" type="submit" value="Submit" />
   </form>
 </div>
