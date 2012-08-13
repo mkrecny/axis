@@ -45,6 +45,16 @@ function readResult(id, cb){
   redis.hgetall('axis:result:'+id, cb);
 }
 
+function getNotables(cb){
+  redis.keys('axis:notable:*', function(e, keys){
+    var multi = redis.multi();
+    keys.forEach(function(key){
+      multi.hgetall(key);
+    });
+    multi.exec(cb);
+  });
+}
+
 exports.index = function(req, res){
   res.render('index', { beliefs: beliefsDb, answers:false})
 };
@@ -59,7 +69,9 @@ exports.result = function(req, res){
     delete data.age;
     delete data.lang;
     delete data.startup;
-    res.render('results', { result_id : req.params.id, meta: meta, score: computeScore(data), beliefs: beliefsDb, answers: data })
+    getNotables(function(e, notables){
+      res.render('results', { result_id : req.params.id, notables : notables, meta: meta, score: computeScore(data), beliefs: beliefsDb, answers: data })
+    });
   });
 };
 

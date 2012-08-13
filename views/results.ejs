@@ -14,6 +14,17 @@
       <input type="submit" value="Submit" />
     </form>
   </p>
+  <% if (notables && notables.length){ %>
+    <hr>
+    <p>
+      Notable Results:
+      <ul>
+        <% notables.forEach(function(notable){ %>
+          <li><a href="/result/<%= notable.id %>"><%= notable.name %></a></li>
+        <% }); %>
+      </ul>
+    </p>
+  <% } %>
   <p>
     <i>This survey was created by <a href="http://twitter.com/mkrecny">Myles Recny</a> and is open source.</i>
   </p>
