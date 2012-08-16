@@ -2,6 +2,7 @@ body {
   font-size:18pt;
   font-family:"Arial";
   color:#505050;
+  overflow-x:hidden;
 }
 
 fieldset {
@@ -77,4 +78,22 @@ fieldset {
 .copy-result-link{
   width:370px;
   font-size:80%;
+}
+
+.chart-title{
+  width:50%;
+  margin:10px;
+}
+
+.chart-copy{
+  font-size:80%;
+}
+
+#disqus_thread{
+  z-index:1000;
+}
+
+#chart_div{
+  width:0px;
+  height:600px;
 }

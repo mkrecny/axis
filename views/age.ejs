@@ -1,0 +1,54 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Age', 'Liberalism'],
+      <% data.forEach(function(d, i){ %>
+        [<%= d[0] %>, <%= d[1] %>] <%= i<data.length-1 ? ',' : '' %>
+      <% }); %>
+    ]);
+
+    var options = {
+      chartArea:{top:20, left:40, right:0, bottom:0},
+      hAxis: {minValue: 0, viewWindow: {max:57,min:17}, viewWindowMode:'explicit'},
+      vAxis: {minValue: 0, maxValue: 100},
+      width:1700,
+      height:600,
+      legend: 'none'
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+</script>
+<div class="chart-title">
+  <p>
+    Age (yrs) vs Software Liberalism (%) vs 
+  </p>
+  <p class="chart-copy">
+    <b>Software Liberalism (y-axis):</b> An approach to Software Engineering typified by the following attitudes: 'Bugs are not a big deal',
+     'Premature optimization is the root of all evil' and 'Rigid schemas limit flexibility and slow down 'development'.
+  </p>
+  <p class="chart-copy">
+    <b>Age (x-axis)</b>.
+  </p>
+</div>
+
+<div id="chart_div" ></div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'softwareengineeringaxissurvey'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

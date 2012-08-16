@@ -39,6 +39,10 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/result/:id', routes.result);
 app.get('/stats', routes.stats);
+app.get('/stats/age', routes.age);
+app.get('/stats/lang', routes.lang);
+app.get('/stats/startup', routes.startup);
+app.get('/age_vs_lib', routes.age_vs_lib);
 app.post('/submit', routes.submit);
 app.post('/email', routes.email);
 
