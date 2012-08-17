@@ -6,14 +6,14 @@
     var data = google.visualization.arrayToDataTable([
       ['ID', 'Avg. Age', 'Avg. Liberalism', '', 'Population'],
       <% data.forEach(function(d, i){ %>
-        ["<%= d[0] %>", <%= d[2] %>, <%= d[1] %>, <%= d[3] %>, <%= d[3] %>] <%= i<data.length-1 ? ',' : '' %>
+        ["<%= d[0] %>", <%= d[2] %>, <%= d[1] %>, <%= d[1] %>, <%= d[3] %>] <%= i<data.length-1 ? ',' : '' %>
       <% }); %>
     ]);
 
     var options = {
       hAxis: {title: 'Avg. Age'},
       vAxis: {title: 'Avg. Liberalism'},
-      colorAxis: {colors: ['yellow', 'red']}
+      colorAxis: {colors: ['red', 'yellow']}
     };
 
     var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
@@ -31,11 +31,11 @@
     Survey responders were asked to identify their favorite programming language.
   </p>
   <p class="chart-copy">
-    <b>Software Liberalism (y-axis):</b> An approach to SWE typified by the following attitudes: 'Bugs are not a big deal',
+    <b>Software Liberalism (y-axis):</b> 'Bugs are not a big deal',
      'Premature optimization is the root of all evil' and 'Rigid schemas limit flexibility and slow down 'development'. A score of of 0% would imply 100% Conservatism
   </p>
   <p class="chart-copy">
-    <b>Software Conservatism:</b> An approach to SWE typified by the following attitudes: 'Software should aim to be bug free before it launches',
+    <b>Software Conservatism:</b> 'Software should aim to be bug free before it launches',
      'Production code must be safety checked by a compiler' and 'Fast is better than slow. Everybody hates slow code'. A score of of 0% would imply 100% Liberalism 
   </p>
 
@@ -44,7 +44,7 @@
   </p>-->
 
 </div>
-<div id="chart_div" style="width: 1200px; height: 500px;"></div>
+<div id="chart_div" style="width: 1200px; height: 700px;"></div>
 <div class="chart-copy">
   <p>
     <a href="/">Take the survey</a> |
