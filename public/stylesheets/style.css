@@ -98,7 +98,7 @@ fieldset {
   z-index:1000;
 }
 
-#chart_div{
+.chart-div{
   width:0px;
   height:600px;
 }
