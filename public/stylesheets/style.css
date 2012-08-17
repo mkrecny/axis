@@ -85,6 +85,11 @@ fieldset {
   margin:10px;
 }
 
+.chart-wide{
+  width:90%;
+  margin:10px;
+}
+
 .chart-copy{
   font-size:80%;
 }

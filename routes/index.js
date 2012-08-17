@@ -1,7 +1,9 @@
 var beliefsDb = require('../data/beliefs')
 , get_2d_avg = require('../lib/get_2d_avg')
+, age_lang = require('../lib/age_lang')
 , redis = require('redis').createClient()
 , computeScore = require('../lib/compute_score')
+, _ = require('underscore')
 , chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
 //TODO: move all these helpers into their own files in /lib
@@ -36,16 +38,29 @@ exports.index = function(req, res){
   res.render('index', { beliefs: beliefsDb, answers:false})
 };
 
-exports.age_vs_lib = function(req, res){
-  get_2d_comparison('age', function(e, data){
-    res.end(JSON.stringify(data));
-  });
-};
-
 exports.age = function(req, res){
   get_2d_avg('age', function(e, data){
     res.render('age', {data:data});
   });
+};
+
+exports.langs = function(req, res){
+  age_lang('lang', function(e, data){
+    data = _.sortBy(data, function(item){
+      return item[1];
+    });
+    res.render('lang', {data:data});
+  });
+};
+
+exports.langs_raw = function(req, res){
+  age_lang('lang', function(e, data){
+    data = _.sortBy(data, function(item){
+      return item[1];
+    });
+    res.end(JSON.stringify(data));
+  });
+
 };
 
 exports.result = function(req, res){

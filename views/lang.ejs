@@ -4,21 +4,51 @@
   google.setOnLoadCallback(drawChart);
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
-      ['Favorite Language', 'Liberalism'],
+      ['ID', 'Avg. Age', 'Avg. Liberalism', '', 'Population'],
       <% data.forEach(function(d, i){ %>
-        ["<%= d[0] %>", <%= d[1] %>] <%= i<data.length-1 ? ',' : '' %>
+        ["<%= d[0] %>", <%= d[2] %>, <%= d[1] %>, <%= d[3] %>, <%= d[3] %>] <%= i<data.length-1 ? ',' : '' %>
       <% }); %>
     ]);
 
     var options = {
-      hAxis: {title: 'Age', minValue: 0, maxValue: 70},
-      vAxis: {title: 'Liberalism', minValue: 0, maxValue: 100},
-      pointSize :2,
-      legend: 'none'
+      hAxis: {title: 'Avg. Age'},
+      vAxis: {title: 'Avg. Liberalism'},
+      colorAxis: {colors: ['yellow', 'red']}
     };
 
-    var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
     chart.draw(data, options);
   }
 </script>
-<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+
+
+<div class="chart-wide">
+  <p>
+    The Political Inclination of Programming Languages
+  </p>
+  <p class="chart-copy">
+    Survey responders were asked to identify their favorite programming language.
+  </p>
+  <p class="chart-copy">
+    <b>Software Liberalism (y-axis):</b> An approach to SWE typified by the following attitudes: 'Bugs are not a big deal',
+     'Premature optimization is the root of all evil' and 'Rigid schemas limit flexibility and slow down 'development'. A score of of 0% would imply 100% Conservatism
+  </p>
+  <p class="chart-copy">
+    <b>Software Conservatism:</b> An approach to SWE typified by the following attitudes: 'Software should aim to be bug free before it launches',
+     'Production code must be safety checked by a compiler' and 'Fast is better than slow. Everybody hates slow code'. A score of of 0% would imply 100% Liberalism 
+  </p>
+
+  <!--<p class="chart-copy">
+    <a href="http://news.ycombinator.com/item?id=4391353">Hacker News Comments</a>
+  </p>-->
+
+</div>
+<div id="chart_div" style="width: 1200px; height: 500px;"></div>
+<div class="chart-copy">
+  <p>
+    <a href="/">Take the survey</a> |
+    <a href="/stats/langs/raw">Raw Data</a> |
+    Created by <a href="http://twitter.com/mkrecny">Myles Recny</a>.
+  </p>
+</div>
