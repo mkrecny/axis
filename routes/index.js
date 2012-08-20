@@ -99,3 +99,19 @@ exports.stats = function(req, res){
     });
   });
 };
+
+exports.api_submissions = function(req, res){
+  redis.keys('axis:result:*', function(e, keys){
+    var multi = redis.multi();
+    keys.forEach(function(key){
+      multi.hgetall(key);
+    });
+    multi.exec(function(e, data){
+      res.end(JSON.stringify({e:e, data:data}));
+    });
+  });
+};
+
+exports.api_questions = function(req, res){
+  res.end(JSON.stringify({e:null, data:beliefsDb}));
+};
