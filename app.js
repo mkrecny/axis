@@ -14,6 +14,7 @@ var express = require('express')
   , routes = require('./routes');
 
 var app = module.exports = express.createServer();
+var redis = require('redis').createClient();
 
 // Configuration
 
@@ -36,6 +37,13 @@ app.configure('production', function(){
 
 // Routes
 
+
+function logRoute(req, res, next){
+  next();
+  redis.zincrby('axis:routes', 1, req.path);
+}
+
+app.all('*', logRoute);
 app.get('/', routes.index);
 app.get('/result/:id', routes.result);
 app.get('/stats', routes.stats);
