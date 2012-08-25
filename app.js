@@ -51,6 +51,7 @@ app.get('/stats/age', routes.age);
 app.get('/stats/lang', routes.langs);
 app.get('/statts/lang', routes.langs);
 app.get('/stats/lang/raw', routes.langs_raw);
+app.get('/api', routes.api);
 app.get('/api/results.json', routes.api_submissions);
 app.get('/api/questions.json', routes.api_questions);
 app.post('/submit', routes.submit);

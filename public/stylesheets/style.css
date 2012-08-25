@@ -14,6 +14,10 @@ fieldset {
   font-size:120%;
 }
 
+.app-links{
+  float:right;
+}
+
 .preamble{
   margin-right:100px;
   float:right;

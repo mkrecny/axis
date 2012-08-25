@@ -79,6 +79,10 @@ exports.result = function(req, res){
   });
 };
 
+exports.api = function(req, res){
+  res.render('api');
+};
+
 exports.submit = function(req, res){
   var result_id = getRandomId();
   writeResult(result_id, req.body, function(){
